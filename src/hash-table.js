@@ -8,11 +8,24 @@ export default class HashTable {
     return key.charAt(0).toLowerCase().charCodeAt(0) - 97;
   }
 
-  set(key, value) {  //Adds a key-value pair to the Hash Table 
+  /* Hash Methods */ 
+  //Adds a key-value pair to the Hash Table 
+  set(key, value) {  
     const index = this.hash(key);
     if (this.array[index] === undefined) {
       this.array[index] = [];
     } //Then(?)
     this.array[index].push([key, value]);
+  }
+
+  //Retrieves a value from the Hash Table
+  get(key) {
+    const index = this.hash(key);
+    const bucket = this.array[index];
+    for (let i=0; i<bucket.length; i++) {
+      if (bucket[i][0] === key) {
+        return bucket[i][1];
+      }
+    }
   }
 }

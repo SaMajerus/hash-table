@@ -18,8 +18,16 @@ describe('HashTable', () => {
     expect(hashTable.hash("zygorth")).toEqual(25);
   });
 
+  //Adds key-value pair to the Hash Table
   test('should correctly set a key-value pair in a hash table', () => {
     hashTable.set("John", "Lead Singer");
     expect(hashTable.array[9]).toEqual([["John", "Lead Singer"]]);
+  });
+
+  //Retrieves a value from the Hash Table
+  test('should correctly get a key-value pair from a hash table', () => {
+    hashTable.set("John", "Lead Singer");
+    hashTable.set("Jane", "Fan of The Beatles");
+    expect(hashTable.get("John")).toEqual("Lead Singer");
   });
 });
