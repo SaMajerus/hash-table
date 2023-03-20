@@ -30,4 +30,16 @@ describe('HashTable', () => {
     hashTable.set("Jane", "Fan of The Beatles");
     expect(hashTable.get("John")).toEqual("Lead Singer");
   });
+
+
+    /* [Other use cases for 'get'] */
+  test('should return null if the bucket has no values', () => {
+    expect(hashTable.get("John")).toEqual(null);
+  });
+
+  test('should return null if the bucket does not contain the key we are looking for', () => {
+    hashTable.set("John", "Lead Singer");
+    hashTable.set("Jane", "Fan of The Beatles");
+    expect(hashTable.get("Jim")).toEqual(null);
+  });
 });

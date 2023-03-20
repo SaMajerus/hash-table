@@ -20,12 +20,15 @@ export default class HashTable {
 
   //Retrieves a value from the Hash Table
   get(key) {
-    const index = this.hash(key);
-    const bucket = this.array[index];
-    for (let i=0; i<bucket.length; i++) {
-      if (bucket[i][0] === key) {
-        return bucket[i][1];
+    const element = this.hash(key);
+    const bucket = this.array[element];
+    if (bucket != undefined) {
+      for (let i=0; i<bucket.length; i++) {
+        if (bucket[i][0] === key) {
+          return bucket[i][1];
+        }
       }
     }
+    return null;
   }
 }
